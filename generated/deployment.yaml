@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: e-cart
+  labels:
+    app: e-cart
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: e-cart
+
+  template:
+    metadata:
+      labels:
+        app: e-cart
+
+    spec:
+      containers:
+      - name: e-cart
+        image: e-cart:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5173
