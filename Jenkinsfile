@@ -9,10 +9,9 @@ stages {
 
         steps {
 
-            bat 'python --version'
-            bat 'docker --version'
-            bat 'kubectl version --client'
-            bat 'git --version'
+          sh 'python3 --version'
+          sh 'docker --version'
+          sh 'kubectl version --client'
 
         }
 
