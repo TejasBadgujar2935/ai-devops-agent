@@ -1,24 +1,47 @@
-pipeline {
+\pipeline {
 
+```
 agent any
 
 stages {
 
-    stage('Checkout') {
+    stage('Verify Jenkins') {
 
         steps {
-            git 'https://github.com/TejasBadgujar2935/ai-devops-agent.git'
+
+            echo '================================='
+            echo 'AI DevOps Agent Pipeline Started'
+            echo 'Jenkins Connected Successfully'
+            echo '================================='
+
         }
     }
 
-    stage('Verify') {
+    stage('Git Info') {
 
         steps {
-            bat 'python --version'
+
+            sh 'pwd'
+            sh 'ls -la'
+
         }
     }
 
 }
 
+post {
+
+    success {
+
+        echo 'Build Successful'
+    }
+
+    failure {
+
+        echo 'Build Failed'
+    }
+
+}
+```
 
 }
