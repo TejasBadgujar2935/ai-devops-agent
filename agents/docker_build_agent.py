@@ -6,7 +6,7 @@ def build_image(app_name, project_path):
     print("\n🐳 Building Docker Image...")
 
     build_status = os.system(
-        f"docker build -t {app_name}:latest {project_path}"
+        f'docker build -t {app_name}:latest"{project_path}"'
     )
 
     if build_status != 0:

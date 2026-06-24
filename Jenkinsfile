@@ -1,28 +1,25 @@
 pipeline {
-    agent any
 
-    stages {
+```
+agent any
 
-        stage('Git Checkout') {
-            steps {
-                checkout scm
-            }
-        }
+stages {
 
-        stage('Build Docker Image') {
-            steps {
-                bat 'docker build -t ai-devops-agent .'
-            }
-        }
+    stage('Checkout') {
 
-        stage('Run Container') {
-            steps {
-                bat 'docker run -d -p 5000:5000 ai-devops-agent'
-            }
+        steps {
+            git 'https://github.com/TejasBadgujar2935/ai-devops-agent.git'
         }
     }
-<<<<<<< HEAD
+
+    stage('Verify') {
+
+        steps {
+            bat 'python --version'
+        }
+    }
+
 }
-=======
+```
+
 }
->>>>>>> 12e051f13eb3f5642074da241f1a049f8be54342
